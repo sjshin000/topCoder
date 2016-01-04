@@ -1,4 +1,4 @@
-package topCoder_1231;
+package topCoder_1231_SquareDigitNumbers;
 
 /**
  * 
