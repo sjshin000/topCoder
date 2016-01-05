@@ -14,7 +14,8 @@ public class SquareDigitNumbers {
 		if(n < 4) {
 			result = result+String.valueOf(n); 
 		} else {
-			result = String.valueOf(n%4) + String.valueOf(getNumber(String.valueOf(n/4))); 
+			result = String.valueOf(getNumber(String.valueOf(n/4)))+String.valueOf(n%4); 
+//			result = String.valueOf(n%4) + String.valueOf(getNumber(String.valueOf(n/4))); 
 //			System.out.println("n%4 : " + String.valueOf(n%4));
 //			System.out.println("n/4 : " + String.valueOf(n/4));
 		}
@@ -25,10 +26,10 @@ public class SquareDigitNumbers {
 //		for(int i = result4.length()-1; i >-1; i--) {
 //			result4 += result4.charAt(i);
 //		}
-//		String result2 = result4.replaceAll("2", "4");
-//		String result3 = result2.replaceAll("3", "9");
+		String result2 = result.replaceAll("2", "4");
+		String result3 = result2.replaceAll("3", "9");
 		
-		return result;
+		return result3;
 	}
 	
 	public static void main(String[] args) {	
