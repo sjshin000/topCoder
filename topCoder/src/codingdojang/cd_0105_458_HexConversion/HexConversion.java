@@ -20,7 +20,9 @@ public class HexConversion {
 			String result1 = String.valueOf(convert(index/div, div)); 
 			String result2 = String.valueOf(index%div);
 			
-			result = result1.replaceAll("14", "E") + result2.replaceAll("14", "E");
+			//아래 부분 간단하게 하는 방법으로 수정이 필요.
+			result = result1.replaceAll("10", "A").replaceAll("11", "B").replaceAll("12", "C").replaceAll("13", "D").replaceAll("14", "E").replaceAll("15", "F") 
+					+ result2.replaceAll("10", "A").replaceAll("11", "B").replaceAll("12", "C").replaceAll("13", "D").replaceAll("14", "E").replaceAll("15", "F");
 		}
 			
 		return result;
