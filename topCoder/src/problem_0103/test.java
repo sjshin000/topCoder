@@ -25,6 +25,6 @@ Discover   		DS   		6011  					16
 
  */
 
-public class main {
+public class test {
 
 }
