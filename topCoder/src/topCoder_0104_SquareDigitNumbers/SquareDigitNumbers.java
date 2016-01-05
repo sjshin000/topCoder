@@ -1,7 +1,5 @@
 package topCoder_0104_SquareDigitNumbers;
 
-import problem_0103.main;
-
 /**
  * 재귀함수를 사용하여 SquareDigitNumbers 문제 동일하게 풀기
  * @author sjshin
