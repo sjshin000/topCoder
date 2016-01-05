@@ -1,4 +1,7 @@
 package codingdojang.cd_0105_408;
+
+import java.util.*;
+
 /**
  * http://codingdojang.com/scode/408
  * 다음 입사문제 중에서
@@ -8,20 +11,22 @@ package codingdojang.cd_0105_408;
  *
  */
 public class CompareSort {
-	public static void main(String[] args) {
+	public static String conmpareSort() {
 		int s[] = {1, 3, 4, 8, 13, 17, 20};
-		int result = 10;
+		int count = s[s.length-1]; //배열의 가장큰수로 초기화
+		String result = "";
 		
-		for(int i = 0; i < s.length-2; i++) {
-			int firTemp = s[i+1] - s[i];   // 1번째와 0번째 비교 > 2와1비교
-			int sendTemp = s[i+2] - s[i+1];
-
-			if (result < firTemp) {
-				result = result;
-			} else {
-				result = firTemp;
+		for(int i = 0; i < s.length-1; i++) {
+			int temp1 = s[i+1] - s[i]; 
+			if (count > temp1) {
+				count = temp1;
+				result = String.valueOf(s[i]+","+s[i+1]);
 			}
-			System.out.println(result);
 		}
+		return result;
+	}
+	public static void main(String[] args) {
+		String result = conmpareSort();
+		System.out.println(result);
 	}
 }
