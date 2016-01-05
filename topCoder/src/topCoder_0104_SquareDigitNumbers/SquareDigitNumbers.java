@@ -8,20 +8,16 @@ import problem_0103.main;
  *
  */
 public class SquareDigitNumbers {
-	public static String getNumber(String inputIndex) {
+	public static int getNumber(int index, int div) {
 		String result = "";
-		int index = Integer.parseInt(inputIndex);
-		int div = 4;
-		if(index < div) {
-			result = result+String.valueOf(index); 
-		} else {
-			result = String.valueOf(getNumber(String.valueOf(index/div)))+String.valueOf(index%div); 
-		}
-		return result.replaceAll("2", "4").replaceAll("3", "9");
+
+		result = (index < div) ? result+String.valueOf(index) : String.valueOf(getNumber(index/div, div))+String.valueOf(index%div); 
+				
+		return Integer.parseInt(result.replaceAll("2", "4").replaceAll("3", "9"));
 	}
 	
 	public static void main(String[] args) {	
-		String n = getNumber("100");
+		int n = getNumber(100, 4);
 		System.out.println(n);
 	}
 }
