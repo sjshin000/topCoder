@@ -20,11 +20,12 @@ public class CompareSort {
 			int temp1 = s[i+1] - s[i]; 
 			if (count > temp1) {
 				count = temp1;
-				result = String.valueOf(s[i]+","+s[i+1]);
+				result = String.valueOf("s["+i+"] "+s[i]+","+s[i+1]);
 			}
 		}
 		return result;
 	}
+	
 	public static void main(String[] args) {
 		String result = conmpareSort();
 		System.out.println(result);
