@@ -8,28 +8,16 @@ import problem_0103.main;
  *
  */
 public class SquareDigitNumbers {
-	public static String getNumber(String s) {
+	public static String getNumber(String inputIndex) {
 		String result = "";
-		int n = Integer.parseInt(s);
-		if(n < 4) {
-			result = result+String.valueOf(n); 
+		int index = Integer.parseInt(inputIndex);
+		int div = 4;
+		if(index < div) {
+			result = result+String.valueOf(index); 
 		} else {
-			result = String.valueOf(getNumber(String.valueOf(n/4)))+String.valueOf(n%4); 
-//			result = String.valueOf(n%4) + String.valueOf(getNumber(String.valueOf(n/4))); 
-//			System.out.println("n%4 : " + String.valueOf(n%4));
-//			System.out.println("n/4 : " + String.valueOf(n/4));
+			result = String.valueOf(getNumber(String.valueOf(index/div)))+String.valueOf(index%div); 
 		}
-		
-		//입력값 100일때 현재 0121임 -> 1210으로 뒤집기 해야함 -> 2,3번 replaceAll
-		
-		
-//		for(int i = result4.length()-1; i >-1; i--) {
-//			result4 += result4.charAt(i);
-//		}
-		String result2 = result.replaceAll("2", "4");
-		String result3 = result2.replaceAll("3", "9");
-		
-		return result3;
+		return result.replaceAll("2", "4").replaceAll("3", "9");
 	}
 	
 	public static void main(String[] args) {	
