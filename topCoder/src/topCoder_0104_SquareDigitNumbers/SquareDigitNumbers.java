@@ -15,11 +15,6 @@ public class SquareDigitNumbers {
 				
 		return Integer.parseInt(result.replaceAll("2", "4").replaceAll("3", "9"));
 	}
-	
-	public static void main(String[] args) {	
-		int n = getNumber(100, 4);
-		System.out.println(n);
-	}
 }
 
 
