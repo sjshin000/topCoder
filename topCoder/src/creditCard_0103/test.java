@@ -1,4 +1,4 @@
-package problem_0103;
+package creditCard_0103;
 
 /**
  * 1.     ¹®Á¦. 

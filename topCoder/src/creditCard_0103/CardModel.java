@@ -1,4 +1,4 @@
-package problem_0103;
+package creditCard_0103;
 /** 카드객체 모델
  * 
  *  신용카드 종류		신용카드 코드	접두사     					신용카드 번호 길이
@@ -13,25 +13,49 @@ package problem_0103;
  *
  */
 public class CardModel {
-	private String cardType;
-	private String cardCode;
-	private int prefix;
-	private int cardLength;
-	private long cardNumber;
+	private String cardType;	//신용카드 종류
+	private String cardCode;	//신용카드 코드
+	
+	private int prefix;			//접두사	
+	private int startPrefix;	//접두사 시작
+	private int endPrefix;		//접두사 종료
+	
+	private int cardLength;		//신용카드 번호 길이
+	private long cardNumber;	//신용카드 번호
+
+	
+	
+	
+	public int getStartPrefix() {
+		return startPrefix;
+	}
+
+	public void setStartPrefix(int startPrefix) {
+		this.startPrefix = startPrefix;
+	}
+
+	public int getEndPrefix() {
+		return endPrefix;
+	}
+
+	public void setEndPrefix(int endPrefix) {
+		this.endPrefix = endPrefix;
+	}
 
 	public long getCardNumber() {
 		return cardNumber;
 	}
+
 	public void setCardNumber(String cardNumber) {
-		this.cardNumber = Integer.parseInt(cardNumber);
+		this.cardNumber = Long.parseLong(cardNumber);
 		
 		int cardLength = cardNumber.length();
-		int prefix = Integer.parseInt(cardNumber.substring(0,1));
+		int prefix = Integer.parseInt(cardNumber.substring(0,2));
 		
 		setCardLength(cardLength);
 		setPrefix(prefix);
-		
 	}
+	
 	public String getCardType() {
 		return cardType;
 	}
