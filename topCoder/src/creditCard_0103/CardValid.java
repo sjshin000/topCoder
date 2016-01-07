@@ -13,7 +13,8 @@ public class CardValid {
 		Boolean result = false;
 		CardModel card = cardCheck(cardParam);  // 파라미터를 가지고 어떤 카드 인지 정보를 조회해서  마스터카드이면 마스터카드 정보를 반환 한다.
 		
-		result = cardValidation(cardParam, card, result);
+		result = cardValidLength(cardParam, card, result);
+		result = cardValidPrefix(cardParam, card, result);
 		
 		return result;
 	}
@@ -23,7 +24,7 @@ public class CardValid {
 		CardModel card = new CardModel();
 		
 		switch (cardParam.getCardType()) {
-		case "MasterCard":
+		case CardCondition.cardTypeMasterCard: //"MasterCard"
 			card = cardCondition.setMasterCard();  //card 모델객체를 반환
 			break;
 		default:
@@ -32,32 +33,40 @@ public class CardValid {
 		return card;
 	}
 	
-	public Boolean cardValidation(CardModel cardParam, CardModel card, Boolean result) {
+	public Boolean cardValidLength(CardModel cardParam, CardModel card, Boolean result) {
+		if(card.getCardLength() == cardParam.getCardLength()) {
+			result = true;
+		} else {
+			result = false;
+		}
+			System.out.println("cardValidLength :" +result);
+		return result;
+	}
+	
+	public Boolean cardValidPrefix(CardModel cardParam, CardModel card, Boolean result) {
 		int startPrefix = card.getStartPrefix(); //마스터 카드의 startPrefix
 		int endPredix = card.getEndPrefix();		//마스터카드
-		int cardLength = card.getCardLength();		//마스터카드
 		
-		int paramPrefix = cardParam.getPrefix();
+		Long paramCardNumber = cardParam.getCardNumber();
+		String pranmCardNum = paramCardNumber.toString();
+		int paramPrefix = Integer.parseInt(pranmCardNum.substring(0,2));
 		
-		if (card.getStartPrefix() >= 1 ) {  //null 이 아닐때로 변경해야 함?
-			
-			System.out.println("cardParam.getCardLength() : "+cardParam.getCardLength());
-			
-			//51 ~ 55 , 16 prefix 비교
+		switch (card.getCardType()) {
+		case CardCondition.cardTypeMasterCard : 
+
 			for (int index = startPrefix; index <= endPredix; index++) {
-				System.out.println("index"+index);
-				System.out.println("paramPrefix : "+paramPrefix);
 				if(index == paramPrefix) {
-					System.out.println("i+endPredix: "+index+paramPrefix);
-					//카드길이 비교
-					if(cardLength == cardParam.getCardLength())
-						result = true;
-					break;
+					result = true;
 				} else {
 					result = false;
 				}
 			}
+			break;
+		default:
+			break;
 		}
+		
+		System.out.println("cardValidation :" +result);
 		return result;
 	}
 }

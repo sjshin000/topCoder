@@ -13,7 +13,7 @@ public class CardCondition {
 		Discover   		DS   		6011  					16 
 	 */
 	
-	public enum cardType {
+	public static enum cardType {
 		MasterCard,
 		Visa,
 		AmericanExpress,
@@ -22,23 +22,9 @@ public class CardCondition {
 		Discover
 	}
 	
-	public enum cardCode {
+	public static enum cardCode {
 		CA, VI, AX, DC, JC, DS
 	}
-	
-
-	
-//	public CardModel cardCheck(CardModel cardParam) {
-//		switch (cardParam.getCardType()) {
-//		case "MasterCard":
-//			MasterCard.setMasterCard();
-//			break;
-//		default:
-//			break;
-//		}
-//		return cardParam;
-//	}
-	
 	
 	final static String cardTypeMasterCard = "MasterCard";
 	final static String cardCodeMasterCard = "CA";

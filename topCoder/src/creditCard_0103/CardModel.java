@@ -50,10 +50,7 @@ public class CardModel {
 		this.cardNumber = Long.parseLong(cardNumber);
 		
 		int cardLength = cardNumber.length();
-		int prefix = Integer.parseInt(cardNumber.substring(0,2));
-		
-		setCardLength(cardLength);
-		setPrefix(prefix);
+		setCardLength(cardLength);  //카드 length는 공통이라 여기서 set
 	}
 	
 	public String getCardType() {
